@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TopTierExotics</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#081a16;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+/* ===== LOADING SCREEN ===== */
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:#081a16;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 2.5s forwards;
+animation-delay:1.5s;
+}
+
+#loader h1{
+color:#39ff14;
+font-size:2rem;
+letter-spacing:3px;
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+
+/* ===== BACKGROUND GLOW ===== */
+body::before{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle, #39ff14 0%, transparent 70%);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+opacity:0.15;
+filter:blur(120px);
+z-index:-1;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav h2{
+color:#39ff14;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#39ff14;
+}
+
+/* ===== HERO ===== */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.hero p{
+opacity:0.8;
+margin-bottom:30px;
+}
+
+/* ===== BUTTONS ===== */
+button{
+padding:15px 40px;
+border:none;
+background:#39ff14;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+border-radius:30px;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #39ff14;
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+padding:100px 10%;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.product{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
+width:300px;
+transition:0.4s;
+backdrop-filter:blur(10px);
+}
+
+.product:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(57,255,20,0.4);
+}
+
+.product h3{
+margin-bottom:15px;
+}
+
+/* ===== FAQ ===== */
+.faq{
+padding:100px 10%;
+}
+
+.faq h2{
+margin-bottom:30px;
+}
+
+.faq-item{
+margin-bottom:15px;
+}
+
+.faq-question{
+width:100%;
+text-align:left;
+padding:15px;
+background:#111;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+.faq-answer{
+display:none;
+padding:15px;
+background:#1a1a1a;
+}
+
+/* ===== FLOATING TELEGRAM BUTTON ===== */
+.floating{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#39ff14;
+color:black;
+padding:15px 25px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 20px #39ff14;
+transition:0.3s;
+}
+
+.floating:hover{
+transform:scale(1.1);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+.products{
+flex-direction:column;
+align-items:center;
+}
+.hero h1{
+font-size:2rem;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+<h1>TopTierExotics</h1>
+</div>
+
+<nav>
+<h2>TopTierExotics</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#products">Shop</a>
+<a href="#faq">FAQ</a>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<h1>Elevate The Exotic</h1>
+<p>Luxury Streetwear. Clean Design. Premium Energy.</p>
+<button onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Enter The Drop</button>
+</section>
+
+<section class="products" id="products">
+
+<div class="product">
+<h3>TopTierExotics Hat</h3>
+<p>Structured fit with breathable construction. Everyday essential.</p>
+<br>
+<button onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Buy Now</button>
+</div>
+
+<div class="product">
+<h3>TopTierExotics Tracksuit</h3>
+<p>Premium pullover hoodie + tapered joggers. Clean tailored fit.</p>
+<br>
+<button onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Buy Now</button>
+</div>
+
+</section>
+
+<section class="faq" id="faq">
+<h2>FAQ</h2>
+
+<div class="faq-item">
+<button class="faq-question">How long is shipping?</button>
+<div class="faq-answer">Shipping times vary depending on location.</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">Are drops limited?</button>
+<div class="faq-answer">Yes. Once sold out, items are not restocked.</div>
+</div>
+
+</section>
+
+<a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank" class="floating">
+Join Drop
+</a>
+
+<script>
+
+/* FAQ Toggle */
+document.querySelectorAll(".faq-question").forEach(btn=>{
+btn.addEventListener("click",()=>{
+const answer = btn.nextElementSibling;
+answer.style.display = answer.style.display === "block" ? "none" : "block";
+});
+});
+
+</script>
+
+</body>
+</html>
