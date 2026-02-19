@@ -28,9 +28,9 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:url("logo.jpg") center center/cover no-repeat;
-filter:blur(30px);
-transform:scale(1.15);
+background:url("logo.png") center center/cover no-repeat;
+filter:blur(35px);
+transform:scale(1.2);
 z-index:-2;
 }
 
@@ -58,14 +58,13 @@ z-index:1001;
 height:3px;
 background:white;
 margin:6px 0;
-transition:0.4s;
 }
 
 /* ===== SIDE PANEL ===== */
 .side-panel{
 position:fixed;
 top:0;
-left:-300px;
+left:-280px;
 width:280px;
 height:100%;
 background:rgba(20,20,20,0.9);
@@ -81,7 +80,6 @@ color:white;
 text-decoration:none;
 margin-bottom:30px;
 font-size:1.2rem;
-transition:0.3s;
 letter-spacing:1px;
 }
 
@@ -105,23 +103,17 @@ padding:0 20px;
 position:relative;
 }
 
-/* LOGO CENTER */
 .hero-logo{
 width:420px;
 max-width:85%;
 margin-bottom:25px;
-filter:drop-shadow(0 0 30px rgba(57,255,20,0.3));
-animation:fadeIn 1.2s ease forwards, float 6s ease-in-out infinite;
+filter:drop-shadow(0 0 35px rgba(57,255,20,0.35));
+animation:fadeIn 1.2s ease forwards;
 opacity:0;
 }
 
 @keyframes fadeIn{
 to{opacity:1;}
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
 }
 
 .hero p{
@@ -131,7 +123,6 @@ font-size:1.2rem;
 letter-spacing:1px;
 }
 
-/* BUTTON */
 button{
 padding:15px 55px;
 border:none;
@@ -149,40 +140,36 @@ transform:scale(1.1);
 box-shadow:0 0 35px #39ff14;
 }
 
-/* SCROLL INDICATOR */
+/* ===== SCROLL CTA ===== */
 .scroll-indicator{
 position:absolute;
 bottom:40px;
 display:flex;
 flex-direction:column;
 align-items:center;
-opacity:0.7;
+gap:10px;
+opacity:0.8;
 }
 
-.mouse{
-width:28px;
-height:45px;
-border:2px solid white;
-border-radius:20px;
-position:relative;
+.scroll-indicator span{
+font-size:0.9rem;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
-.mouse::before{
-content:"";
-width:4px;
-height:8px;
-background:white;
-position:absolute;
-top:8px;
-left:50%;
-transform:translateX(-50%);
-border-radius:2px;
-animation:scrollMove 2s infinite;
+.arrow{
+width:20px;
+height:20px;
+border-left:2px solid white;
+border-bottom:2px solid white;
+transform:rotate(-45deg);
+animation:arrowBounce 2s infinite;
 }
 
-@keyframes scrollMove{
-0%{opacity:1; top:8px;}
-100%{opacity:0; top:20px;}
+@keyframes arrowBounce{
+0%{transform:rotate(-45deg) translateY(0);}
+50%{transform:rotate(-45deg) translateY(10px);}
+100%{transform:rotate(-45deg) translateY(0);}
 }
 
 /* ===== PRODUCTS ===== */
@@ -271,24 +258,21 @@ align-items:center;
 <div class="background"></div>
 <div class="overlay"></div>
 
-<!-- Burger -->
 <div class="burger" onclick="toggleMenu()">
 <div></div>
 <div></div>
 <div></div>
 </div>
 
-<!-- Side Panel -->
 <div class="side-panel" id="sideMenu">
 <a href="#home" onclick="toggleMenu()">Home</a>
 <a href="#products" onclick="toggleMenu()">Products</a>
 <a href="#faq" onclick="toggleMenu()">FAQ</a>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
 
-<img src="logo.jpg" class="hero-logo" alt="TopTierExotics Logo">
+<img src="logo.png" class="hero-logo" alt="TopTierExotics Logo">
 
 <p>Luxury Streetwear. Elevated Energy.</p>
 
@@ -297,12 +281,12 @@ Enter The Drop
 </button>
 
 <div class="scroll-indicator">
-<div class="mouse"></div>
+<span>Explore Collection</span>
+<div class="arrow"></div>
 </div>
 
 </section>
 
-<!-- PRODUCTS -->
 <section class="products" id="products">
 <h2>Featured Drop</h2>
 
@@ -329,7 +313,6 @@ Buy Now
 </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq" id="faq">
 <h2>FAQ</h2>
 
@@ -346,7 +329,6 @@ Buy Now
 </section>
 
 <script>
-
 function toggleMenu(){
 document.getElementById("sideMenu").classList.toggle("active");
 }
@@ -357,7 +339,6 @@ const answer = btn.nextElementSibling;
 answer.style.display = answer.style.display === "block" ? "none" : "block";
 });
 });
-
 </script>
 
 </body>
