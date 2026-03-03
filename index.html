@@ -6,11 +6,11 @@
 
 <title>TopTierExotics | Luxury Streetwear</title>
 
-<meta name="description" content="TopTierExotics offers premium luxury streetwear including hats and tracksuits. Order directly via Telegram. Worldwide shipping available.">
-<meta name="keywords" content="TopTierExotics, luxury streetwear, premium tracksuit, streetwear brand, designer hat">
+<meta name="description" content="TopTierExotics offers premium luxury streetwear including hats and tracksuits. Private access ordering via Telegram. Worldwide shipping available.">
+<meta name="keywords" content="TopTierExotics, luxury streetwear, premium tracksuit, streetwear brand">
 <meta name="author" content="TopTierExotics">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,19 +28,20 @@ background:#000;
 color:white;
 overflow-x:hidden;
 scroll-behavior:smooth;
+letter-spacing:0.5px;
 }
 
 /* ===== CUSTOM CURSOR ===== */
 .cursor{
-width:20px;
-height:20px;
+width:18px;
+height:18px;
 border:2px solid #39ff14;
 border-radius:50%;
 position:fixed;
 pointer-events:none;
 transform:translate(-50%,-50%);
 z-index:2000;
-transition:0.08s ease-out;
+transition:0.06s ease-out;
 mix-blend-mode:difference;
 }
 
@@ -52,15 +53,15 @@ left:0;
 width:100%;
 height:100%;
 background:url("logo.png") center center/cover no-repeat;
-filter:blur(50px);
-transform:scale(1.4);
+filter:blur(55px);
+transform:scale(1.45);
 z-index:-3;
-animation:slowZoom 25s ease-in-out infinite alternate;
+animation:slowZoom 30s ease-in-out infinite alternate;
 }
 
 @keyframes slowZoom{
-from{transform:scale(1.4);}
-to{transform:scale(1.5);}
+from{transform:scale(1.45);}
+to{transform:scale(1.55);}
 }
 
 .overlay{
@@ -70,25 +71,25 @@ left:0;
 width:100%;
 height:100%;
 background:
-linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)),
-radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.98)),
+radial-gradient(circle at center, rgba(0,0,0,0.5), rgba(0,0,0,0.95));
 z-index:-2;
 }
 
 /* ===== BURGER ===== */
 .burger{
 position:fixed;
-top:25px;
-left:25px;
+top:30px;
+left:30px;
 width:32px;
 cursor:pointer;
 z-index:1001;
 }
 
 .burger div{
-height:3px;
+height:2px;
 background:white;
-margin:7px 0;
+margin:8px 0;
 transition:0.4s;
 }
 
@@ -109,9 +110,9 @@ top:0;
 left:-320px;
 width:300px;
 height:100%;
-background:rgba(15,15,15,0.95);
+background:rgba(10,10,10,0.96);
 backdrop-filter:blur(40px);
-padding:120px 40px;
+padding:140px 50px;
 transition:0.5s ease;
 z-index:1000;
 }
@@ -120,9 +121,10 @@ z-index:1000;
 display:block;
 color:white;
 text-decoration:none;
-margin-bottom:40px;
-font-size:1.2rem;
-letter-spacing:2px;
+margin-bottom:45px;
+font-size:0.95rem;
+letter-spacing:3px;
+font-weight:500;
 transition:0.3s;
 }
 
@@ -143,58 +145,61 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:0 20px;
-gap:35px;
+gap:45px;
 position:relative;
 }
 
 .hero-logo{
-width:460px;
+width:440px;
 max-width:85%;
-filter:drop-shadow(0 0 55px rgba(57,255,20,0.4));
-animation:floatLogo 6s ease-in-out infinite;
+filter:drop-shadow(0 0 60px rgba(57,255,20,0.35));
+animation:floatLogo 7s ease-in-out infinite;
 }
 
 @keyframes floatLogo{
 0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+50%{transform:translateY(-12px);}
 100%{transform:translateY(0);}
 }
 
 .hero p{
-font-size:1.3rem;
-letter-spacing:2px;
+font-size:1.05rem;
+letter-spacing:3px;
 font-weight:300;
-opacity:0.85;
+opacity:0.75;
+text-transform:uppercase;
 }
 
 .primary-btn{
-padding:18px 65px;
+padding:17px 60px;
 border:none;
 border-radius:50px;
 background:#39ff14;
 color:black;
-font-weight:700;
+font-weight:600;
 cursor:pointer;
-font-size:1rem;
+font-size:0.9rem;
+letter-spacing:2px;
 transition:0.3s;
 }
 
 .primary-btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 40px #39ff14;
+transform:scale(1.06);
+box-shadow:0 0 45px #39ff14;
 }
 
 /* ===== PRODUCTS ===== */
 .products{
-padding:180px 10%;
+padding:220px 12%;
 background:#0a0a0a;
 }
 
 .products h2{
 text-align:center;
-margin-bottom:90px;
-font-size:3rem;
-letter-spacing:3px;
+margin-bottom:100px;
+font-size:2.4rem;
+letter-spacing:6px;
+font-weight:500;
 font-family:'Playfair Display',serif;
 }
 
@@ -202,60 +207,64 @@ font-family:'Playfair Display',serif;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:60px;
+gap:90px;
 }
 
 .product{
-background:linear-gradient(145deg,#111,#0b0b0b);
-padding:50px;
-border-radius:25px;
+background:linear-gradient(145deg,#111,#0d0d0d);
+padding:60px 50px;
+border-radius:28px;
 width:340px;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.04);
 text-align:center;
 transition:0.4s;
 }
 
 .product:hover{
-box-shadow:0 0 80px rgba(57,255,20,0.25);
-transform:translateY(-10px);
+box-shadow:0 0 90px rgba(57,255,20,0.2);
+transform:translateY(-12px);
 }
 
 .product h3{
-margin-bottom:20px;
-font-weight:600;
+margin-bottom:25px;
+font-weight:500;
+letter-spacing:2px;
 }
 
 .product p{
-opacity:0.7;
-margin-bottom:30px;
+opacity:0.6;
+margin-bottom:35px;
+font-size:0.95rem;
 }
 
 /* ===== FAQ ===== */
 .faq{
-padding:180px 10%;
+padding:220px 12%;
 background:#000;
 }
 
 .faq h2{
 text-align:center;
-margin-bottom:80px;
-letter-spacing:3px;
+margin-bottom:100px;
+letter-spacing:6px;
 font-family:'Playfair Display',serif;
+font-weight:500;
 }
 
 .faq-item{
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .faq-question{
 width:100%;
-padding:20px;
+padding:22px;
 background:#111;
 border:none;
 color:white;
 cursor:pointer;
 text-align:left;
-font-size:1rem;
+font-size:0.9rem;
+letter-spacing:2px;
 transition:0.3s;
 }
 
@@ -267,69 +276,75 @@ background:#161616;
 max-height:0;
 overflow:hidden;
 transition:max-height 0.4s ease;
-background:#1a1a1a;
-padding:0 20px;
+background:#151515;
+padding:0 25px;
 }
 
 .faq-answer p{
-padding:20px 0;
-opacity:0.8;
+padding:22px 0;
+opacity:0.65;
+font-size:0.9rem;
 }
 
 /* ===== FOOTER ===== */
 .footer{
-padding:60px 10%;
+padding:80px 10%;
 background:#0a0a0a;
 text-align:center;
-border-top:1px solid rgba(255,255,255,0.05);
+border-top:1px solid rgba(255,255,255,0.04);
 }
 
 .footer h3{
-margin-bottom:30px;
-letter-spacing:2px;
+margin-bottom:35px;
+letter-spacing:4px;
 font-weight:500;
+font-size:0.9rem;
 }
 
 .footer-icons{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:50px;
 }
 
 .footer-icons img{
-width:40px;
+width:38px;
 transition:0.3s;
 cursor:pointer;
-filter:brightness(0.9);
+filter:brightness(0.85);
 }
 
 .footer-icons img:hover{
-transform:scale(1.2);
-filter:brightness(1.2);
+transform:scale(1.15);
+filter:brightness(1.1);
 }
 
-/* ===== LEGAL SECTION ===== */
+/* ===== LEGAL ===== */
 .legal{
-padding:120px 10%;
+padding:150px 12%;
 background:#0a0a0a;
-border-top:1px solid rgba(255,255,255,0.05);
+border-top:1px solid rgba(255,255,255,0.04);
 }
 
 .legal h2{
 font-family:'Playfair Display',serif;
-margin-bottom:30px;
+margin-bottom:35px;
+letter-spacing:3px;
+font-weight:500;
 }
 
 .legal p{
-opacity:0.7;
-margin-bottom:50px;
-line-height:1.6;
+opacity:0.6;
+margin-bottom:60px;
+line-height:1.8;
+font-size:0.9rem;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-.hero-logo{ width:280px; }
-.product-grid{ flex-direction:column; align-items:center; }
+.hero-logo{ width:260px; }
+.product-grid{ flex-direction:column; align-items:center; gap:60px; }
+.products, .faq, .legal{ padding:140px 8%; }
 }
 
 </style>
@@ -348,8 +363,8 @@ line-height:1.6;
 </div>
 
 <div class="side-panel" id="sideMenu">
-<a href="#home" onclick="toggleMenu()">Home</a>
-<a href="#products" onclick="toggleMenu()">Products</a>
+<a href="#home" onclick="toggleMenu()">HOME</a>
+<a href="#products" onclick="toggleMenu()">PRODUCTS</a>
 <a href="#faq" onclick="toggleMenu()">FAQ</a>
 </div>
 
@@ -357,7 +372,7 @@ line-height:1.6;
 <img src="logo.png" class="hero-logo" alt="TopTierExotics Logo">
 <p>Luxury Streetwear. Elevated Energy.</p>
 <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
-Order Via Telegram
+SHOP COLLECTION
 </button>
 </section>
 
@@ -365,14 +380,14 @@ Order Via Telegram
 <h2>FEATURED COLLECTION</h2>
 <div class="product-grid">
 <div class="product">
-<h3>TopTierExotics Hat</h3>
+<h3>TOPTIEREXOTICS HAT</h3>
 <p>Structured fit. Breathable fabric. Everyday essential.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Order</button>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
 </div>
 <div class="product">
-<h3>TopTierExotics Tracksuit</h3>
+<h3>TOPTIEREXOTICS TRACKSUIT</h3>
 <p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Order</button>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
 </div>
 </div>
 </section>
@@ -380,17 +395,17 @@ Order Via Telegram
 <section class="faq" id="faq">
 <h2>FAQ</h2>
 <div class="faq-item">
-<button class="faq-question">How long is shipping?</button>
+<button class="faq-question">HOW LONG IS SHIPPING?</button>
 <div class="faq-answer"><p>Shipping times vary depending on location.</p></div>
 </div>
 <div class="faq-item">
-<button class="faq-question">Are items restocked?</button>
+<button class="faq-question">ARE ITEMS RESTOCKED?</button>
 <div class="faq-answer"><p>Yes. We restock regularly.</p></div>
 </div>
 </section>
 
 <footer class="footer">
-<h3>Connect & Pay</h3>
+<h3>CONNECT & PAY</h3>
 <div class="footer-icons">
 <a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
@@ -402,12 +417,12 @@ Order Via Telegram
 </footer>
 
 <section class="legal">
-<h2>Privacy Policy</h2>
+<h2>PRIVACY POLICY</h2>
 <p>
 TopTierExotics does not collect personal data directly through this website. Orders are processed via Telegram and payments are securely handled through PayPal. We do not store payment information.
 </p>
 
-<h2>Terms & Conditions</h2>
+<h2>TERMS & CONDITIONS</h2>
 <p>
 By purchasing from TopTierExotics, you agree to our standard terms of sale. All sales are subject to availability. Shipping times may vary depending on location. Refunds and exchanges are handled case-by-case.
 </p>
