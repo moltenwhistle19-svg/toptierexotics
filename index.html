@@ -58,7 +58,7 @@ from{transform:scale(1.4);}
 to{transform:scale(1.5);}
 }
 
-/* ===== DARK DEPTH OVERLAY ===== */
+/* ===== OVERLAY ===== */
 .overlay{
 position:fixed;
 top:0;
@@ -69,19 +69,6 @@ background:
 linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)),
 radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
 z-index:-2;
-}
-
-/* ===== GRAIN TEXTURE ===== */
-.grain{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("https://grainy-gradients.vercel.app/noise.svg");
-opacity:0.05;
-z-index:-1;
-pointer-events:none;
 }
 
 /* ===== BURGER ===== */
@@ -176,7 +163,6 @@ font-weight:300;
 opacity:0.85;
 }
 
-/* ===== BUTTON ===== */
 .primary-btn{
 padding:18px 65px;
 border:none;
@@ -187,17 +173,11 @@ font-weight:700;
 cursor:pointer;
 font-size:1rem;
 transition:0.3s;
-animation:pulse 3s infinite;
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 0px #39ff14;}
-50%{box-shadow:0 0 40px #39ff14;}
-100%{box-shadow:0 0 0px #39ff14;}
 }
 
 .primary-btn:hover{
 transform:scale(1.08);
+box-shadow:0 0 40px #39ff14;
 }
 
 /* ===== PRODUCTS ===== */
@@ -228,18 +208,12 @@ border-radius:25px;
 width:340px;
 border:1px solid rgba(255,255,255,0.05);
 text-align:center;
-opacity:0;
-transform:translateY(50px);
-transition:0.6s ease;
-}
-
-.product.show{
-opacity:1;
-transform:translateY(0);
+transition:0.4s;
 }
 
 .product:hover{
 box-shadow:0 0 80px rgba(57,255,20,0.25);
+transform:translateY(-10px);
 }
 
 .product h3{
@@ -298,6 +272,38 @@ padding:20px 0;
 opacity:0.8;
 }
 
+/* ===== FOOTER ===== */
+.footer{
+padding:60px 10%;
+background:#0a0a0a;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer h3{
+margin-bottom:30px;
+letter-spacing:2px;
+font-weight:500;
+}
+
+.footer-icons{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.footer-icons img{
+width:40px;
+transition:0.3s;
+cursor:pointer;
+filter:brightness(0.9);
+}
+
+.footer-icons img:hover{
+transform:scale(1.2);
+filter:brightness(1.2);
+}
+
 /* ===== MOBILE ===== */
 @media(max-width:768px){
 .hero-logo{ width:280px; }
@@ -312,7 +318,6 @@ opacity:0.8;
 <div class="cursor" id="cursor"></div>
 <div class="background"></div>
 <div class="overlay"></div>
-<div class="grain"></div>
 
 <div class="burger" id="burger" onclick="toggleMenu()">
 <div></div>
@@ -327,32 +332,28 @@ opacity:0.8;
 </div>
 
 <section class="hero" id="home">
-
 <img src="logo.png" class="hero-logo" alt="TopTierExotics Logo">
-
 <p>Luxury Streetwear. Elevated Energy.</p>
-
 <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
-Enter The Drop
+Order Via Telegram
 </button>
-
 </section>
 
 <section class="products" id="products">
-<h2>FEATURED DROP</h2>
+<h2>FEATURED COLLECTION</h2>
 
 <div class="product-grid">
 
 <div class="product">
 <h3>TopTierExotics Hat</h3>
 <p>Structured fit. Breathable fabric. Everyday essential.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Buy Now</button>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Order</button>
 </div>
 
 <div class="product">
 <h3>TopTierExotics Tracksuit</h3>
 <p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Buy Now</button>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">Order</button>
 </div>
 
 </div>
@@ -367,21 +368,34 @@ Enter The Drop
 </div>
 
 <div class="faq-item">
-<button class="faq-question">Are drops limited?</button>
-<div class="faq-answer"><p>Yes. Once sold out, they do not restock.</p></div>
+<button class="faq-question">Are items restocked?</button>
+<div class="faq-answer"><p>Yes. We restock regularly.</p></div>
 </div>
 
 </section>
 
+<footer class="footer">
+<h3>Connect & Pay</h3>
+
+<div class="footer-icons">
+<a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+</a>
+
+<a href="https://www.paypal.me/TopTierExotics" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174861.png">
+</a>
+</div>
+
+</footer>
+
 <script>
 
-/* Burger */
 function toggleMenu(){
 document.getElementById("sideMenu").classList.toggle("active");
 document.getElementById("burger").classList.toggle("active");
 }
 
-/* FAQ */
 document.querySelectorAll(".faq-question").forEach(btn=>{
 btn.addEventListener("click",()=>{
 const answer = btn.nextElementSibling;
@@ -389,17 +403,6 @@ answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + "
 });
 });
 
-/* Scroll reveal */
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".product").forEach(card=>{
-const rect = card.getBoundingClientRect();
-if(rect.top < window.innerHeight - 100){
-card.classList.add("show");
-}
-});
-});
-
-/* Cursor */
 const cursor = document.getElementById("cursor");
 document.addEventListener("mousemove", e=>{
 cursor.style.left = e.clientX + "px";
