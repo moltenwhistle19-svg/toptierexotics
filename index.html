@@ -15,11 +15,11 @@
 <style>
 
 /* ===== RESET ===== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-cursor:none;
 }
 
 body{
@@ -31,21 +31,8 @@ scroll-behavior:smooth;
 letter-spacing:0.5px;
 }
 
-/* ===== CURSOR ===== */
-.cursor{
-width:18px;
-height:18px;
-border:2px solid #39ff14;
-border-radius:50%;
-position:fixed;
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:2000;
-transition:0.06s ease-out;
-mix-blend-mode:difference;
-}
-
 /* ===== BACKGROUND ===== */
+
 .background{
 position:fixed;
 top:0;
@@ -71,12 +58,13 @@ left:0;
 width:100%;
 height:100%;
 background:
-linear-gradient(to bottom, rgba(0,0,0,0.88), rgba(0,0,0,0.98)),
+linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
 radial-gradient(circle at center, rgba(0,0,0,0.5), rgba(0,0,0,0.95));
 z-index:-2;
 }
 
 /* ===== BURGER ===== */
+
 .burger{
 position:fixed;
 top:30px;
@@ -96,21 +84,24 @@ transition:0.4s;
 .burger.active div:nth-child(1){
 transform:rotate(45deg) translate(6px,6px);
 }
+
 .burger.active div:nth-child(2){
 opacity:0;
 }
+
 .burger.active div:nth-child(3){
 transform:rotate(-45deg) translate(7px,-7px);
 }
 
 /* ===== SIDE PANEL ===== */
+
 .side-panel{
 position:fixed;
 top:0;
 left:-320px;
 width:300px;
 height:100%;
-background:rgba(10,10,10,0.96);
+background:rgba(10,10,10,0.97);
 backdrop-filter:blur(40px);
 padding:140px 50px;
 transition:0.5s ease;
@@ -137,6 +128,7 @@ left:0;
 }
 
 /* ===== HERO ===== */
+
 .hero{
 height:100vh;
 display:flex;
@@ -194,9 +186,17 @@ letter-spacing:2px;
 opacity:0.6;
 }
 
+/* ===== SECTION FADE ===== */
+
+.section-divider{
+height:160px;
+background:linear-gradient(to bottom, rgba(0,0,0,0), #0a0a0a);
+}
+
 /* ===== PRODUCTS ===== */
+
 .products{
-padding:220px 12%;
+padding:200px 12%;
 background:#0a0a0a;
 }
 
@@ -218,7 +218,7 @@ gap:90px;
 
 .product{
 background:linear-gradient(145deg,#111,#0d0d0d);
-padding:60px 50px;
+padding:40px 40px 55px 40px;
 border-radius:28px;
 width:340px;
 border:1px solid rgba(255,255,255,0.04);
@@ -231,8 +231,14 @@ box-shadow:0 0 90px rgba(57,255,20,0.2);
 transform:translateY(-12px);
 }
 
+.product img{
+width:100%;
+border-radius:18px;
+margin-bottom:30px;
+}
+
 .product h3{
-margin-bottom:25px;
+margin-bottom:20px;
 font-weight:500;
 letter-spacing:2px;
 }
@@ -243,10 +249,32 @@ margin-bottom:35px;
 font-size:0.95rem;
 }
 
+/* ===== CONTACT ===== */
+
+.contact{
+padding:200px 12%;
+background:#000;
+text-align:center;
+}
+
+.contact h2{
+margin-bottom:40px;
+letter-spacing:6px;
+font-family:'Playfair Display',serif;
+font-weight:500;
+}
+
+.contact p{
+opacity:0.6;
+letter-spacing:2px;
+font-size:0.9rem;
+}
+
 /* ===== FOOTER ===== */
+
 .footer{
 padding:80px 10%;
-background:#0a0a0a;
+background:#050505;
 text-align:center;
 border-top:1px solid rgba(255,255,255,0.04);
 }
@@ -276,30 +304,25 @@ transform:scale(1.15);
 filter:brightness(1.1);
 }
 
-/* ===== CONTACT ===== */
-.contact{
-padding:180px 12%;
-background:#000;
-text-align:center;
-}
-
-.contact h2{
-margin-bottom:40px;
-letter-spacing:6px;
-font-family:'Playfair Display',serif;
-font-weight:500;
-}
-
-.contact p{
-opacity:0.6;
-letter-spacing:2px;
-font-size:0.9rem;
-}
+/* ===== MOBILE ===== */
 
 @media(max-width:768px){
-.hero-logo{ width:260px; }
-.product-grid{ flex-direction:column; align-items:center; gap:60px; }
-.products, .contact{ padding:140px 8%; }
+
+.hero-logo{
+width:260px;
+}
+
+.product-grid{
+flex-direction:column;
+align-items:center;
+gap:60px;
+}
+
+.products,
+.contact{
+padding:140px 8%;
+}
+
 }
 
 </style>
@@ -307,7 +330,6 @@ font-size:0.9rem;
 
 <body>
 
-<div class="cursor" id="cursor"></div>
 <div class="background"></div>
 <div class="overlay"></div>
 
@@ -318,54 +340,105 @@ font-size:0.9rem;
 </div>
 
 <div class="side-panel" id="sideMenu">
+
 <a href="#home" onclick="toggleMenu()">HOME</a>
+
 <a href="#products" onclick="toggleMenu()">PRODUCTS</a>
+
 <a href="#contact" onclick="toggleMenu()">CONTACT US</a>
+
+<a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">SOCIALS</a>
+
 <a href="https://www.paypal.me/TopTierExotics" target="_blank">PAYPAL</a>
+
 </div>
 
 <section class="hero" id="home">
+
 <img src="logo.png" class="hero-logo" alt="TopTierExotics Logo">
+
 <p>Private Access Luxury Streetwear</p>
+
 <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
 SHOP COLLECTION
 </button>
+
 <div class="trust-text">
 WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
 </div>
+
 </section>
+
+<div class="section-divider"></div>
 
 <section class="products" id="products">
+
 <h2>FEATURED COLLECTION</h2>
+
 <div class="product-grid">
+
 <div class="product">
+
+<img src="hat.png" alt="TopTierExotics Hat">
+
 <h3>TOPTIEREXOTICS HAT</h3>
+
 <p>Structured fit. Breathable fabric. Everyday essential.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
+
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
+ORDER
+</button>
+
 </div>
+
 <div class="product">
+
 <h3>TOPTIEREXOTICS TRACKSUIT</h3>
+
 <p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
+
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
+ORDER
+</button>
+
 </div>
+
 </div>
+
 </section>
 
+<div class="section-divider"></div>
+
 <section class="contact" id="contact">
+
 <h2>CONTACT US</h2>
-<p>For all inquiries, sizing questions, and orders — join our Telegram channel.</p>
+
+<p>
+For all inquiries, sizing questions, and orders — join our Telegram channel.
+</p>
+
 </section>
 
 <footer class="footer">
+
 <h3>CONNECT</h3>
+
 <div class="footer-icons">
+
 <a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">
+
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+
 </a>
+
 <a href="https://www.paypal.me/TopTierExotics" target="_blank">
+
 <img src="https://cdn-icons-png.flaticon.com/512/174/174861.png">
+
 </a>
+
 </div>
+
 </footer>
 
 <script>
@@ -374,12 +447,6 @@ function toggleMenu(){
 document.getElementById("sideMenu").classList.toggle("active");
 document.getElementById("burger").classList.toggle("active");
 }
-
-const cursor = document.getElementById("cursor");
-document.addEventListener("mousemove", e=>{
-cursor.style.left = e.clientX + "px";
-cursor.style.top = e.clientY + "px";
-});
 
 </script>
 
