@@ -107,6 +107,13 @@ width:360px;
 max-width:85%;
 margin-bottom:30px;
 filter:drop-shadow(0 0 40px rgba(57,255,20,0.35));
+animation:floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
 }
 
 .hero p{
@@ -133,8 +140,6 @@ transition:.25s;
 transform:scale(1.05);
 box-shadow:0 0 30px #39ff14;
 }
-
-/* ===== TRUST TEXT SPACING FIX ===== */
 
 .trust{
 margin-top:50px;
@@ -166,23 +171,37 @@ max-width:1000px;
 margin:auto;
 }
 
+/* ===== PRODUCT CARD ===== */
+
 .product{
 background:#111;
 border-radius:20px;
 padding:30px;
 text-align:center;
-transition:.25s;
+transition:.35s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.product.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .product:hover{
-transform:translateY(-6px);
-box-shadow:0 0 50px rgba(57,255,20,.15);
+transform:translateY(-8px);
+box-shadow:0 0 60px rgba(57,255,20,.2);
 }
 
 .product img{
 width:100%;
 border-radius:14px;
 margin-bottom:20px;
+transition:.35s;
+}
+
+.product:hover img{
+transform:scale(1.05);
 }
 
 .product h3{
@@ -266,15 +285,11 @@ padding:100px 8%;
 
 <body>
 
-<!-- BURGER -->
-
 <div class="burger" id="burger" onclick="toggleMenu()">
 <div></div>
 <div></div>
 <div></div>
 </div>
-
-<!-- SIDE MENU -->
 
 <div class="side-menu" id="menu">
 
@@ -285,8 +300,6 @@ padding:100px 8%;
 <a href="https://www.paypal.me/TopTierExotics" target="_blank">PAYPAL</a>
 
 </div>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -304,8 +317,6 @@ WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
 </div>
 
 </section>
-
-<!-- PRODUCTS -->
 
 <section class="products" id="products">
 
@@ -347,8 +358,6 @@ ORDER
 
 </section>
 
-<!-- CONTACT -->
-
 <section class="contact" id="contact">
 
 <h2>CONTACT US</h2>
@@ -358,8 +367,6 @@ For all inquiries, sizing questions, and orders — join our Telegram channel.
 </p>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -385,6 +392,24 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 document.getElementById("burger").classList.toggle("active");
 }
+
+/* scroll reveal */
+
+const products=document.querySelectorAll(".product");
+
+function revealProducts(){
+const trigger=window.innerHeight*0.85;
+
+products.forEach(p=>{
+const top=p.getBoundingClientRect().top;
+
+if(top<trigger){
+p.classList.add("show");
+}
+});
+}
+
+window.addEventListener("scroll",revealProducts);
 
 </script>
 
