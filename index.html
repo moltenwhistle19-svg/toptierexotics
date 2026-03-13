@@ -1,349 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>TopTierExotics | Private Access Luxury Streetwear</title>
+
 <meta name="description" content="TopTierExotics is a private access luxury streetwear brand. Worldwide shipping. Secure PayPal payments.">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== HARD RESET ===== */
+
+/* ===== RESET ===== */
 html,body{margin:0;padding:0;background:#000;overflow-x:hidden;}
 *{box-sizing:border-box;margin:0;padding:0;}
 
-/* ===== GLOBAL ===== */
 body{
-  font-family:'Montserrat',sans-serif;
-  color:#fff;
-  line-height:1.5;
-  scroll-behavior:smooth;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+font-family:'Montserrat',sans-serif;
+color:#fff;
+line-height:1.5;
+scroll-behavior:smooth;
+-webkit-font-smoothing:antialiased;
 }
 
 /* ===== BURGER ===== */
 .burger{
-  position:fixed;
-  top:30px;
-  left:30px;
-  width:30px;
-  cursor:pointer;
-  z-index:1200;
+position:fixed;
+top:30px;
+left:30px;
+width:30px;
+cursor:pointer;
+z-index:1200;
 }
 .burger div{
-  height:2px;
-  background:#fff;
-  margin:7px 0;
-  transition:.28s;
+height:2px;
+background:#fff;
+margin:7px 0;
+transition:.28s;
 }
-.burger.active div:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-.burger.active div:nth-child(2){ opacity:0; }
-.burger.active div:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
+.burger.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.burger.active div:nth-child(2){opacity:0;}
+.burger.active div:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
 
 /* ===== SIDE MENU ===== */
 .side-menu{
-  position:fixed;
-  top:0;
-  left:-300px;
-  width:280px;
-  height:100%;
-  background:#0a0a0a;
-  padding:120px 34px;
-  transition:.32s;
-  z-index:1100;
+position:fixed;
+top:0;
+left:-300px;
+width:280px;
+height:100%;
+background:#0a0a0a;
+padding:120px 34px;
+transition:.32s;
+z-index:1100;
 }
 .side-menu a{
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  margin-bottom:34px;
-  letter-spacing:3px;
-  font-size:.95rem;
+display:block;
+color:#fff;
+text-decoration:none;
+margin-bottom:34px;
+letter-spacing:3px;
+font-size:.95rem;
 }
-.side-menu a:hover{ color:#39ff14; }
-.side-menu.active{ left:0; }
+.side-menu a:hover{color:#39ff14;}
+.side-menu.active{left:0;}
 
 /* ===== HERO ===== */
 .hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:48px 20px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:48px 20px;
 }
 .hero-logo{
-  width:360px;
-  max-width:85%;
-  margin-bottom:30px;
-  filter:drop-shadow(0 0 40px rgba(57,255,20,0.35));
-  animation:floatLogo 6s ease-in-out infinite;
+width:360px;
+max-width:85%;
+margin-bottom:30px;
+filter:drop-shadow(0 0 40px rgba(57,255,20,.35));
+animation:floatLogo 6s ease-in-out infinite;
 }
 @keyframes floatLogo{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-  100%{transform:translateY(0)}
-}
-.hero p{
-  letter-spacing:3px;
-  font-size:.95rem;
-  opacity:.78;
-  margin-bottom:35px;
-  text-transform:uppercase;
-}
-.primary-btn{
-  padding:16px 56px;
-  border:none;
-  border-radius:50px;
-  background:#39ff14;
-  color:#000;
-  font-weight:600;
-  letter-spacing:2px;
-  cursor:pointer;
-  transition:.22s;
-}
-.primary-btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(57,255,20,.55);
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
 }
 
-/* TRUST TEXT SPACING */
+.hero p{
+letter-spacing:3px;
+font-size:.95rem;
+opacity:.78;
+margin-bottom:35px;
+text-transform:uppercase;
+}
+
+.primary-btn{
+padding:16px 56px;
+border:none;
+border-radius:50px;
+background:#39ff14;
+color:#000;
+font-weight:600;
+letter-spacing:2px;
+cursor:pointer;
+transition:.22s;
+}
+.primary-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(57,255,20,.55);
+}
+
 .trust{
-  margin-top:60px;
-  font-size:.75rem;
-  opacity:.62;
-  letter-spacing:2px;
+margin-top:60px;
+font-size:.75rem;
+opacity:.62;
+letter-spacing:2px;
 }
 
 /* ===== PRODUCTS ===== */
 .products{
-  padding:140px 10%;
-  background:#0a0a0a;
+padding:140px 10%;
+background:#0a0a0a;
 }
+
 .products h2{
-  text-align:center;
-  margin-bottom:70px;
-  font-size:2.2rem;
-  letter-spacing:6px;
-  font-family:'Playfair Display',serif;
+text-align:center;
+margin-bottom:70px;
+font-size:2.2rem;
+letter-spacing:6px;
+font-family:'Playfair Display',serif;
 }
+
 .product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:50px;
-  max-width:1000px;
-  margin:0 auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:50px;
+max-width:1000px;
+margin:0 auto;
 }
 
 /* ===== PRODUCT CARD ===== */
 .product{
-  background:#111;
-  border-radius:20px;
-  padding:30px;
-  text-align:center;
-  transition:transform .35s, box-shadow .35s;
-  opacity:0;
-  transform:translateY(40px);
-  position:relative;
-  overflow:visible;
+background:#111;
+border-radius:20px;
+padding:30px;
+text-align:center;
+transition:transform .35s,box-shadow .35s;
+opacity:0;
+transform:translateY(40px);
 }
 
-/* "show" added by reveal script */
-.product.show{ opacity:1; transform:translateY(0); }
+.product.show{
+opacity:1;
+transform:translateY(0);
+}
 
-/* hover = lift + soft bubble shadow + image zoom */
 .product:hover{
-  transform:translateY(-10px);
-  box-shadow:0 25px 60px rgba(0,0,0,.65);
+transform:translateY(-10px);
+box-shadow:0 25px 60px rgba(0,0,0,.65);
 }
 
 .product img{
-  width:100%;
-  border-radius:14px;
-  margin-bottom:20px;
-  transition:transform .35s;
-  display:block;
+width:100%;
+border-radius:14px;
+margin-bottom:20px;
+transition:transform .35s;
+display:block;
 }
-.product:hover img{ transform:scale(1.08); }
+
+.product:hover img{
+transform:scale(1.08);
+}
 
 .product h3{
-  margin-bottom:12px;
-  letter-spacing:2px;
+margin-bottom:12px;
+letter-spacing:2px;
 }
+
 .product p{
-  opacity:.6;
-  font-size:.9rem;
-  margin-bottom:25px;
+opacity:.6;
+font-size:.9rem;
+margin-bottom:25px;
 }
 
 /* ===== CONTACT ===== */
 .contact{
-  padding:120px 10%;
-  text-align:center;
+padding:120px 10%;
+text-align:center;
 }
+
 .contact h2{
-  letter-spacing:6px;
-  margin-bottom:25px;
-  font-family:'Playfair Display',serif;
+letter-spacing:6px;
+margin-bottom:25px;
+font-family:'Playfair Display',serif;
 }
+
 .contact p{
-  opacity:.6;
-  letter-spacing:2px;
-  max-width:560px;
-  margin:0 auto;
+opacity:.6;
+letter-spacing:2px;
+max-width:560px;
+margin:0 auto;
 }
 
 /* ===== FOOTER ===== */
 .footer{
-  padding:60px 10%;
-  text-align:center;
-  border-top:1px solid rgba(255,255,255,.05);
+padding:60px 10%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
 }
-.footer h3{ margin-bottom:25px; letter-spacing:4px; font-size:.9rem; }
-.footer-icons{ display:flex; justify-content:center; gap:40px; }
-.footer-icons img{ width:34px; transition:.25s; }
-.footer-icons img:hover{ transform:scale(1.15); }
+
+.footer h3{
+margin-bottom:25px;
+letter-spacing:4px;
+font-size:.9rem;
+}
+
+.footer-icons{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.footer-icons img{
+width:34px;
+transition:.25s;
+}
+
+.footer-icons img:hover{
+transform:scale(1.15);
+}
 
 /* ===== MOBILE ===== */
-@media (max-width:768px){
-  .hero-logo{ width:240px; }
-  .products{ padding:100px 8%; }
-  .contact{ padding:100px 8%; }
-  .side-menu{ padding:90px 28px; width:240px; left:-260px; }
+@media(max-width:768px){
+
+.hero-logo{width:240px;}
+
+.products{padding:100px 8%;}
+
+.contact{padding:100px 8%;}
+
+.side-menu{
+padding:90px 28px;
+width:240px;
+left:-260px;
 }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Defensive: remove any stray text nodes (e.g. 'html') that might be injected before or inside the document.
-     This runs immediately so the page won't flash the stray text. -->
-<script>
-(function removeStrayText(){
-  try{
-    // Remove text nodes directly under document (before <html>) if any
-    var rootChildren = Array.from(document.childNodes || []);
-    rootChildren.forEach(function(n){
-      if(n && n.nodeType === Node.TEXT_NODE && n.textContent.trim()){
-        // If the text seems like the artifact (short) remove it
-        if(n.textContent.trim().length < 40){
-          n.parentNode && n.parentNode.removeChild(n);
-        }
-      }
-    });
-
-    // Also remove stray text nodes directly inside body (in case)
-    var bodyChildren = Array.from(document.body ? document.body.childNodes : []);
-    bodyChildren.forEach(function(n){
-      if(n && n.nodeType === Node.TEXT_NODE && n.textContent.trim()){
-        if(n.textContent.trim().length < 40){
-          n.parentNode && n.parentNode.removeChild(n);
-        }
-      }
-    });
-  }catch(e){
-    // fail silently - this is defensive only
-  }
-})();
-</script>
-
 <!-- BURGER -->
-<div class="burger" id="burger" onclick="toggleMenu()" aria-label="menu" role="button" tabindex="0">
-  <div></div><div></div><div></div>
+<div class="burger" id="burger" onclick="toggleMenu()" tabindex="0">
+<div></div>
+<div></div>
+<div></div>
 </div>
 
 <!-- SIDE MENU -->
-<nav class="side-menu" id="menu" aria-hidden="true">
-  <a href="#home" onclick="toggleMenu()">HOME</a>
-  <a href="#products" onclick="toggleMenu()">PRODUCTS</a>
-  <a href="#contact" onclick="toggleMenu()">CONTACT US</a>
-  <a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank" rel="noopener">SOCIALS</a>
-  <a href="https://www.paypal.me/TopTierExotics" target="_blank" rel="noopener">PAYPAL</a>
+<nav class="side-menu" id="menu">
+<a href="#home" onclick="toggleMenu()">HOME</a>
+<a href="#products" onclick="toggleMenu()">PRODUCTS</a>
+<a href="#contact" onclick="toggleMenu()">CONTACT US</a>
+<a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">SOCIALS</a>
+<a href="https://www.paypal.me/TopTierExotics" target="_blank">PAYPAL</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home" aria-label="hero">
-  <img src="logo.png" class="hero-logo" alt="TopTierExotics Logo" />
-  <p>PRIVATE ACCESS LUXURY STREETWEAR</p>
-  <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">SHOP COLLECTION</button>
-  <div class="trust">WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS</div>
+<section class="hero" id="home">
+
+<img src="logo.png" class="hero-logo" alt="TopTierExotics Logo">
+
+<p>PRIVATE ACCESS LUXURY STREETWEAR</p>
+
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">
+SHOP COLLECTION
+</button>
+
+<div class="trust">
+WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
+</div>
+
 </section>
 
 <!-- PRODUCTS -->
-<section class="products" id="products" aria-label="products">
-  <h2>FEATURED COLLECTION</h2>
-  <div class="product-grid">
-    <article class="product" aria-label="hat">
-      <img src="hat.png" loading="lazy" alt="TopTierExotics Hat" />
-      <h3>TOPTIEREXOTICS HAT</h3>
-      <p>Structured fit. Breathable fabric. Everyday essential.</p>
-      <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
-    </article>
+<section class="products" id="products">
 
-    <article class="product" aria-label="tracksuit">
-      <img src="tracksuit.png" loading="lazy" alt="TopTierExotics Tracksuit" />
-      <h3>TOPTIEREXOTICS TRACKSUIT</h3>
-      <p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
-      <button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
-    </article>
-  </div>
+<h2>FEATURED COLLECTION</h2>
+
+<div class="product-grid">
+
+<article class="product">
+<img src="hat.png" loading="lazy" alt="TopTierExotics Hat">
+<h3>TOPTIEREXOTICS HAT</h3>
+<p>Structured fit. Breathable fabric. Everyday essential.</p>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
+</article>
+
+<article class="product">
+<img src="tracksuit.png" loading="lazy" alt="TopTierExotics Tracksuit">
+<h3>TOPTIEREXOTICS TRACKSUIT</h3>
+<p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
+<button class="primary-btn" onclick="window.open('https://t.me/+pjrH2Z-XE3VlZmNk','_blank')">ORDER</button>
+</article>
+
+</div>
+
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact" aria-label="contact">
-  <h2>CONTACT US</h2>
-  <p>For all inquiries, sizing questions, and orders — join our Telegram channel.</p>
+<section class="contact" id="contact">
+
+<h2>CONTACT US</h2>
+
+<p>
+For all inquiries, sizing questions, and orders — join our Telegram channel.
+</p>
+
 </section>
 
 <!-- FOOTER -->
-<footer class="footer" aria-label="footer">
-  <h3>CONNECT</h3>
-  <div class="footer-icons">
-    <a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank" rel="noopener">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
-    </a>
-    <a href="https://www.paypal.me/TopTierExotics" target="_blank" rel="noopener">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174861.png" alt="PayPal" />
-    </a>
-  </div>
+<footer class="footer">
+
+<h3>CONNECT</h3>
+
+<div class="footer-icons">
+
+<a href="https://t.me/+pjrH2Z-XE3VlZmNk" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+</a>
+
+<a href="https://www.paypal.me/TopTierExotics" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174861.png" alt="PayPal">
+</a>
+
+</div>
+
 </footer>
 
 <script>
-/* Toggle menu */
+
+/* MENU TOGGLE */
 function toggleMenu(){
-  var menu = document.getElementById('menu');
-  var burger = document.getElementById('burger');
-  menu.classList.toggle('active');
-  burger.classList.toggle('active');
+const menu = document.getElementById('menu');
+const burger = document.getElementById('burger');
+
+menu.classList.toggle('active');
+burger.classList.toggle('active');
 }
 
-/* Scroll reveal for products */
-(function(){
-  var products = [];
-  function initProducts(){
-    products = Array.prototype.slice.call(document.querySelectorAll('.product'));
-    revealProducts(); // initial
-  }
-  function revealProducts(){
-    var trigger = window.innerHeight * 0.85;
-    products.forEach(function(p){
-      var top = p.getBoundingClientRect().top;
-      if(top < trigger){
-        p.classList.add('show');
-      }
-    });
-  }
-  window.addEventListener('scroll', revealProducts, {passive:true});
-  window.addEventListener('resize', revealProducts);
-  window.addEventListener('load', initProducts);
-  // in case DOM parsed but load not fired (fast), try DOMContentLoaded init
-  window.addEventListener('DOMContentLoaded', initProducts);
-})();
+/* PRODUCT REVEAL */
+const products = document.querySelectorAll(".product");
+
+function revealProducts(){
+
+const trigger = window.innerHeight * 0.85;
+
+products.forEach(product => {
+
+const top = product.getBoundingClientRect().top;
+
+if(top < trigger){
+product.classList.add("show");
+}
+
+});
+
+}
+
+window.addEventListener("scroll", revealProducts);
+window.addEventListener("load", revealProducts);
 
 </script>
+
 </body>
 </html>
