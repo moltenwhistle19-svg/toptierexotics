@@ -45,7 +45,7 @@ transition:.28s;
 .burger.active div:nth-child(2){opacity:0;}
 .burger.active div:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
 
-/* SIDE MENU */
+/* MENU */
 
 .side-menu{
 position:fixed;
@@ -68,9 +68,7 @@ letter-spacing:3px;
 font-size:.95rem;
 }
 
-.side-menu a:hover{
-color:#39ff14;
-}
+.side-menu a:hover{color:#39ff14;}
 
 .side-menu.active{left:0;}
 
@@ -175,7 +173,7 @@ transform:translateY(-10px);
 box-shadow:0 0 40px rgba(57,255,20,.25),0 25px 60px rgba(0,0,0,.7);
 }
 
-/* IMAGE */
+/* PRODUCT IMAGE */
 
 .product-image{
 position:relative;
@@ -221,6 +219,8 @@ opacity:1;
 .arrow:hover{
 box-shadow:0 0 10px rgba(57,255,20,.6);
 }
+
+/* PRODUCT TEXT */
 
 .product h3{
 margin-bottom:12px;
@@ -329,6 +329,8 @@ WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
 
 <div class="product-grid">
 
+<!-- HAT -->
+
 <article class="product">
 
 <div class="product-image">
@@ -352,10 +354,18 @@ ORDER
 
 </article>
 
+<!-- TRACKSUIT -->
+
 <article class="product">
 
 <div class="product-image">
-<img src="tracksuit.png">
+
+<button class="arrow arrow-left" onclick="changeTracksuit(-1)">‹</button>
+
+<img src="tracksuit.png" id="tracksuitImage">
+
+<button class="arrow arrow-right" onclick="changeTracksuit(1)">›</button>
+
 </div>
 
 <h3>TOPTIEREXOTICS TRACKSUIT</h3>
@@ -420,6 +430,7 @@ const trigger=window.innerHeight*0.85;
 
 products.forEach(product=>{
 const top=product.getBoundingClientRect().top;
+
 if(top<trigger){
 product.classList.add("show");
 }
@@ -428,6 +439,8 @@ product.classList.add("show");
 
 window.addEventListener("scroll",revealProducts);
 window.addEventListener("load",revealProducts);
+
+/* HAT IMAGES */
 
 const hatImages=[
 "hat.png",
@@ -450,6 +463,33 @@ hatIndex=0;
 }
 
 document.getElementById("hatImage").src=hatImages[hatIndex];
+
+}
+
+/* TRACKSUIT IMAGES */
+
+const tracksuitImages=[
+"tracksuit.png",
+"tracksuit-back.jpg",
+"tracksuit-side.jpg",
+"tracksuit-detail.jpg"
+];
+
+let tracksuitIndex=0;
+
+function changeTracksuit(direction){
+
+tracksuitIndex+=direction;
+
+if(tracksuitIndex<0){
+tracksuitIndex=tracksuitImages.length-1;
+}
+
+if(tracksuitIndex>=tracksuitImages.length){
+tracksuitIndex=0;
+}
+
+document.getElementById("tracksuitImage").src=tracksuitImages[tracksuitIndex];
 
 }
 
