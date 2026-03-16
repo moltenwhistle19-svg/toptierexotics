@@ -115,7 +115,7 @@ color:#000;
 font-weight:600;
 letter-spacing:2px;
 cursor:pointer;
-transition:.22s;
+transition:.25s;
 }
 
 .primary-btn:hover{
@@ -161,6 +161,7 @@ text-align:center;
 transition:transform .35s,box-shadow .35s;
 opacity:0;
 transform:translateY(40px);
+position:relative;
 }
 
 .product.show{
@@ -170,7 +171,7 @@ transform:translateY(0);
 
 .product:hover{
 transform:translateY(-10px);
-box-shadow:0 25px 60px rgba(0,0,0,.65);
+box-shadow:0 0 40px rgba(57,255,20,.25),0 25px 60px rgba(0,0,0,.7);
 }
 
 .product img{
@@ -239,7 +240,7 @@ transition:.25s;
 }
 
 .footer-icons img:hover{
-transform:scale(1.15);
+transform:scale(1.2);
 }
 
 /* ===== MOBILE ===== */
@@ -264,14 +265,12 @@ left:-260px;
 
 <body>
 
-<!-- BURGER -->
 <div class="burger" id="burger" onclick="toggleMenu()">
 <div></div>
 <div></div>
 <div></div>
 </div>
 
-<!-- SIDE MENU -->
 <nav class="side-menu" id="menu">
 
 <a href="#home" onclick="toggleMenu()">HOME</a>
@@ -285,7 +284,6 @@ left:-260px;
 
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
 
 <img src="logo.png" class="hero-logo">
@@ -303,7 +301,6 @@ WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
 
 </section>
 
-<!-- PRODUCTS -->
 <section class="products" id="products">
 
 <h2>FEATURED COLLECTION</h2>
@@ -343,7 +340,6 @@ ORDER
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
 
 <h2>CONTACT US</h2>
@@ -354,7 +350,6 @@ For all inquiries, sizing questions, and orders — join our Telegram or message
 
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
 
 <h3>CONNECT</h3>
@@ -380,13 +375,10 @@ For all inquiries, sizing questions, and orders — join our Telegram or message
 <script>
 
 function toggleMenu(){
-
 const menu=document.getElementById('menu');
 const burger=document.getElementById('burger');
-
 menu.classList.toggle('active');
 burger.classList.toggle('active');
-
 }
 
 const products=document.querySelectorAll(".product");
@@ -396,13 +388,11 @@ function revealProducts(){
 const trigger=window.innerHeight*0.85;
 
 products.forEach(product=>{
-
 const top=product.getBoundingClientRect().top;
 
 if(top<trigger){
 product.classList.add("show");
 }
-
 });
 
 }
