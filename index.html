@@ -23,7 +23,7 @@ scroll-behavior:smooth;
 -webkit-font-smoothing:antialiased;
 }
 
-/* ===== LOADING SCREEN ===== */
+/* LOADER */
 
 .loader{
 position:fixed;
@@ -41,7 +41,7 @@ transition:opacity .8s;
 
 .loader img{
 width:160px;
-filter:drop-shadow(0 0 30px rgba(57,255,20,.7));
+filter:drop-shadow(0 0 30px rgba(57,255,20,.6));
 animation:pulse 2s infinite;
 }
 
@@ -141,14 +141,14 @@ border-radius:50px;
 background:#39ff14;
 color:#000;
 font-weight:600;
-letter-spacing:2px;
+letter-spacing:2.5px;
 cursor:pointer;
-transition:.25s;
+transition:.3s;
 }
 
 .primary-btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(57,255,20,.55);
+transform:scale(1.06);
+box-shadow:0 0 30px rgba(57,255,20,.5);
 }
 
 .trust{
@@ -176,15 +176,15 @@ font-family:'Playfair Display',serif;
 .product-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:50px;
+gap:60px;
 max-width:1000px;
 margin:0 auto;
 }
 
 .product{
 background:#111;
-border-radius:20px;
-padding:30px;
+border-radius:22px;
+padding:40px 30px;
 text-align:center;
 transition:transform .35s,box-shadow .35s;
 opacity:0;
@@ -198,8 +198,8 @@ transform:translateY(0);
 }
 
 .product:hover{
-transform:translateY(-10px);
-box-shadow:0 0 45px rgba(57,255,20,.35),0 25px 60px rgba(0,0,0,.7);
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(57,255,20,.25),0 25px 60px rgba(0,0,0,.7);
 }
 
 /* PRODUCT IMAGE */
@@ -210,6 +210,7 @@ height:260px;
 display:flex;
 align-items:center;
 justify-content:center;
+margin-bottom:10px;
 }
 
 .product-image img{
@@ -217,8 +218,27 @@ max-width:100%;
 max-height:100%;
 object-fit:contain;
 border-radius:14px;
-margin-bottom:20px;
 cursor:pointer;
+}
+
+/* TITLE + TEXT SPACING */
+
+.product h3{
+margin-top:12px;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+.product p{
+opacity:.7;
+font-size:.9rem;
+margin-bottom:26px; /* KEY FIX */
+}
+
+/* BUTTON SPACING FIX */
+
+.product .primary-btn{
+margin-top:10px;
 }
 
 /* ARROWS */
@@ -358,7 +378,7 @@ max-height:90%;
 <a href="#contact" onclick="toggleMenu()">CONTACT US</a>
 
 <a href="https://t.me/TTE_V2" target="_blank">TELEGRAM</a>
-<a href="https://www.instagram.com/toptierexotics.2k25?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank">INSTAGRAM</a>
+<a href="https://www.instagram.com/toptierexotics.2k25" target="_blank">INSTAGRAM</a>
 
 <a href="https://www.paypal.me/TopTierExotics" target="_blank">PAYPAL</a>
 
@@ -454,7 +474,7 @@ For all inquiries, sizing questions, and orders — join our Telegram or message
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
 </a>
 
-<a href="https://www.instagram.com/toptierexotics.2k25?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank">
+<a href="https://www.instagram.com/toptierexotics.2k25" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </a>
 
@@ -472,16 +492,12 @@ For all inquiries, sizing questions, and orders — join our Telegram or message
 
 <script>
 
-/* LOADER */
-
 window.addEventListener("load",()=>{
 setTimeout(()=>{
 document.getElementById("loader").style.opacity="0";
 setTimeout(()=>{document.getElementById("loader").style.display="none"},800);
 },900);
 });
-
-/* MENU */
 
 function toggleMenu(){
 const menu=document.getElementById('menu');
@@ -490,8 +506,6 @@ menu.classList.toggle('active');
 burger.classList.toggle('active');
 }
 
-/* REVEAL */
-
 const products=document.querySelectorAll(".product");
 
 function revealProducts(){
@@ -499,17 +513,12 @@ const trigger=window.innerHeight*0.85;
 
 products.forEach(product=>{
 const top=product.getBoundingClientRect().top;
-
-if(top<trigger){
-product.classList.add("show");
-}
+if(top<trigger){product.classList.add("show");}
 });
 }
 
 window.addEventListener("scroll",revealProducts);
 window.addEventListener("load",revealProducts);
-
-/* HAT */
 
 const hatImages=["hat.png","hat1-back.jpg","hat1-side.jpg"];
 let hatIndex=0;
@@ -521,8 +530,6 @@ document.getElementById("hatImage").src=hatImages[hatIndex];
 updateDots("hatDots",hatIndex);
 }
 
-/* TRACKSUIT */
-
 const tracksuitImages=["tracksuit.png","tracksuit-back.jpg","tracksuit-side.jpg","tracksuit-detail.jpg"];
 let tracksuitIndex=0;
 let tracksuitInterval;
@@ -533,11 +540,8 @@ document.getElementById("tracksuitImage").src=tracksuitImages[tracksuitIndex];
 updateDots("tracksuitDots",tracksuitIndex);
 }
 
-/* DOTS */
-
 function createDots(container,images){
 const el=document.getElementById(container);
-
 images.forEach((img,i)=>{
 const dot=document.createElement("span");
 if(i===0)dot.classList.add("active");
@@ -547,18 +551,12 @@ el.appendChild(dot);
 
 function updateDots(container,index){
 const dots=document.getElementById(container).children;
-
-for(let i=0;i<dots.length;i++){
-dots[i].classList.remove("active");
-}
-
+for(let i=0;i<dots.length;i++){dots[i].classList.remove("active");}
 dots[index].classList.add("active");
 }
 
 createDots("hatDots",hatImages);
 createDots("tracksuitDots",tracksuitImages);
-
-/* ZOOM */
 
 document.getElementById("hatImage").onclick=openZoom;
 document.getElementById("tracksuitImage").onclick=openZoom;
@@ -571,8 +569,6 @@ document.getElementById("zoom").style.display="flex";
 function closeZoom(){
 document.getElementById("zoom").style.display="none";
 }
-
-/* HOVER AUTO ROTATE */
 
 const hatGallery=document.getElementById("hatGallery");
 const tracksuitGallery=document.getElementById("tracksuitGallery");
