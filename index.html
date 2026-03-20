@@ -22,7 +22,7 @@ overflow-x:hidden;
 scroll-behavior:smooth;
 }
 
-/* LOADER (UPGRADED) */
+/* LOADER */
 .loader{
 position:fixed;
 top:0;
@@ -63,7 +63,7 @@ height:2px;background:#fff;margin:7px 0;transition:.3s;
 .burger.active div:nth-child(2){opacity:0;}
 .burger.active div:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
 
-/* MENU (UPGRADED) */
+/* MENU */
 .side-menu{
 position:fixed;
 top:0;
@@ -90,7 +90,7 @@ color:#39ff14;
 transform:translateX(6px);
 }
 
-/* HERO (TIGHTER) */
+/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -187,7 +187,7 @@ transform:translateY(-12px);
 box-shadow:0 0 35px rgba(57,255,20,.25);
 }
 
-/* BADGE (NEW) */
+/* BADGE */
 .badge{
 position:absolute;
 top:15px;
@@ -215,21 +215,27 @@ cursor:pointer;
 border-radius:10px;
 }
 
-/* ARROWS */
+/* 🔥 FIXED ARROWS */
 .arrow{
 position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,.6);
+bottom:15px; /* moved DOWN instead of center */
+background:rgba(0,0,0,.7);
 color:#39ff14;
 border:none;
 width:34px;
 height:34px;
 border-radius:50%;
-opacity:0;
+opacity:.9;
 transition:.3s;
 }
-.product-image:hover .arrow{opacity:1;}
+
+.arrow-left{left:15px;}
+.arrow-right{right:15px;}
+
+.arrow:hover{
+transform:scale(1.15);
+box-shadow:0 0 12px rgba(57,255,20,.6);
+}
 
 /* DOTS */
 .gallery-dots{
@@ -246,7 +252,7 @@ background:#39ff14;
 box-shadow:0 0 6px rgba(57,255,20,.8);
 }
 
-/* TELEGRAM SECTION (NEW) */
+/* TELEGRAM */
 .telegram{
 text-align:center;
 padding:100px 10%;
@@ -263,11 +269,6 @@ opacity:.7;
 padding:100px 10%;
 text-align:center;
 }
-.contact p{
-opacity:.6;
-max-width:500px;
-margin:auto;
-}
 
 /* FOOTER */
 .footer{
@@ -275,19 +276,8 @@ padding:60px 10%;
 text-align:center;
 border-top:1px solid rgba(255,255,255,.05);
 }
-.footer-icons{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:20px;
-}
-.footer-icons img{
-width:32px;
-transition:.3s;
-}
-.footer-icons img:hover{transform:scale(1.2);}
 
-/* ZOOM (UPGRADED) */
+/* ZOOM */
 .zoom{
 position:fixed;
 top:0;
@@ -336,17 +326,10 @@ animation:zoomIn .3s forwards;
 <img src="logo.png" class="hero-logo">
 <p>PRIVATE ACCESS • LIMITED DROPS • MEMBERS ONLY</p>
 
-<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
-SHOP COLLECTION
-</button>
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">SHOP COLLECTION</button>
+<button class="primary-btn secondary-btn" onclick="window.open('https://t.me/TTE_V2')">JOIN TELEGRAM</button>
 
-<button class="primary-btn secondary-btn" onclick="window.open('https://t.me/TTE_V2')">
-JOIN TELEGRAM
-</button>
-
-<div class="trust">
-WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
-</div>
+<div class="trust">WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS</div>
 </section>
 
 <section class="products" id="products">
@@ -397,24 +380,17 @@ SECURE VIA TELEGRAM
 
 <section class="telegram">
 <h2>PRIVATE ACCESS ONLY</h2>
-<p>All drops are released exclusively via Telegram. Members get early access before public release.</p>
-<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
-JOIN NOW
-</button>
+<p>All drops are released via Telegram. Members get early access.</p>
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">JOIN NOW</button>
 </section>
 
 <section class="contact" id="contact">
 <h2>CONTACT</h2>
-<p>For inquiries, sizing, and orders — message us via Telegram or Instagram.</p>
+<p>Message us via Telegram or Instagram for orders and inquiries.</p>
 </section>
 
 <footer class="footer">
-<h3>CONNECT</h3>
-<div class="footer-icons">
-<a href="https://t.me/TTE_V2"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
-<a href="https://www.instagram.com/toptierexotics.2k25"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
-<a href="https://www.paypal.me/TopTierExotics"><img src="https://cdn-icons-png.flaticon.com/512/174/174861.png"></a>
-</div>
+<p>CONNECT</p>
 </footer>
 
 <div class="zoom" id="zoom" onclick="closeZoom()">
@@ -423,7 +399,6 @@ JOIN NOW
 
 <script>
 
-/* LOADER */
 window.addEventListener("load",()=>{
 setTimeout(()=>{
 loader.style.opacity="0";
@@ -431,13 +406,11 @@ setTimeout(()=>loader.style.display="none",800);
 },700);
 });
 
-/* MENU */
 function toggleMenu(){
 menu.classList.toggle("active");
 burger.classList.toggle("active");
 }
 
-/* REVEAL */
 const products=document.querySelectorAll(".product");
 window.addEventListener("scroll",()=>{
 products.forEach(p=>{
@@ -447,7 +420,6 @@ p.classList.add("show");
 });
 });
 
-/* GALLERIES (unchanged logic) */
 const hatImages=["hat.png","hat1-back.jpg","hat1-side.jpg"];
 let hatIndex=0;
 function changeHat(d){
@@ -479,9 +451,9 @@ document.getElementById(id).children[i].classList.add("active");
 createDots("hatDots",hatImages);
 createDots("tracksuitDots",tracksuitImages);
 
-/* ZOOM */
 hatImage.onclick=openZoom;
 tracksuitImage.onclick=openZoom;
+
 function openZoom(e){
 zoomImg.src=e.target.src;
 zoom.style.display="flex";
