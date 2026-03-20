@@ -19,15 +19,32 @@ font-family:'Montserrat',sans-serif;
 background:#000;
 color:#fff;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* GLOBAL */
-section{padding:100px 10%;}
-h2{
-font-family:'Playfair Display',serif;
-letter-spacing:6px;
-text-align:center;
-margin-bottom:60px;
+/* LOADER (UPGRADED) */
+.loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:3000;
+transition:opacity .8s ease;
+}
+.loader img{
+width:160px;
+animation:pulse 2s infinite;
+filter:drop-shadow(0 0 40px rgba(57,255,20,.7));
+}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
 }
 
 /* BURGER */
@@ -46,32 +63,25 @@ height:2px;background:#fff;margin:7px 0;transition:.3s;
 .burger.active div:nth-child(2){opacity:0;}
 .burger.active div:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
 
-/* MENU */
+/* MENU (UPGRADED) */
 .side-menu{
 position:fixed;
 top:0;
 left:-100%;
-width:300px;
+width:280px;
 height:100%;
 background:#050505;
-padding:120px 40px;
+padding:120px 30px;
 transition:.4s;
 z-index:1500;
+box-shadow:20px 0 60px rgba(0,0,0,.8);
 }
 .side-menu.active{left:0;}
-
-.side-menu h4{
-margin:30px 0 15px;
-opacity:.5;
-font-size:.8rem;
-letter-spacing:3px;
-}
-
 .side-menu a{
 display:block;
+margin-bottom:25px;
 color:#fff;
 text-decoration:none;
-margin-bottom:20px;
 letter-spacing:2px;
 transition:.3s;
 }
@@ -80,61 +90,74 @@ color:#39ff14;
 transform:translateX(6px);
 }
 
-/* HERO */
+/* HERO (TIGHTER) */
 .hero{
 min-height:100vh;
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
-padding:20px;
+padding:30px 20px;
 }
-
-.hero img{
+.hero-logo{
 width:320px;
-max-width:85%;
-margin-bottom:25px;
-filter:drop-shadow(0 0 40px rgba(57,255,20,.3));
-animation:float 6s ease-in-out infinite;
+margin-bottom:20px;
+filter:drop-shadow(0 0 40px rgba(57,255,20,.4));
+animation:float 6s infinite ease-in-out;
 }
-
 @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0);}
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
 }
-
 .hero p{
 letter-spacing:3px;
-opacity:.7;
+opacity:.75;
 margin-bottom:25px;
 }
 
-.btn{
-padding:15px 50px;
+/* BUTTONS */
+.primary-btn{
+padding:14px 45px;
 border-radius:50px;
-border:none;
 background:#39ff14;
 color:#000;
+border:none;
 font-weight:600;
-letter-spacing:2px;
 cursor:pointer;
 transition:.3s;
-margin:10px;
+margin:8px;
 }
-.btn:hover{
-transform:scale(1.08);
+.primary-btn:hover{
+transform:scale(1.07);
 box-shadow:0 0 30px rgba(57,255,20,.6);
 }
-
-.sub-btn{
+.secondary-btn{
 background:transparent;
 color:#39ff14;
 border:1px solid #39ff14;
 }
 
+/* TRUST */
+.trust{
+margin-top:30px;
+font-size:.75rem;
+opacity:.6;
+letter-spacing:2px;
+}
+
 /* PRODUCTS */
+.products{
+padding:120px 10%;
+}
+.products h2{
+text-align:center;
+margin-bottom:60px;
+letter-spacing:6px;
+font-family:'Playfair Display',serif;
+}
+
 .product-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -145,60 +168,101 @@ margin:auto;
 
 .product{
 background:#0d0d0d;
-padding:30px;
 border-radius:20px;
+padding:35px;
 text-align:center;
-transition:.3s;
+transition:.35s;
+opacity:0;
+transform:translateY(40px);
 position:relative;
 }
 
-.product:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(57,255,20,.2);
+.product.show{
+opacity:1;
+transform:translateY(0);
 }
 
+.product:hover{
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(57,255,20,.25);
+}
+
+/* BADGE (NEW) */
 .badge{
 position:absolute;
 top:15px;
 left:15px;
 background:#39ff14;
 color:#000;
-padding:5px 12px;
 font-size:.7rem;
+padding:5px 10px;
 border-radius:20px;
-letter-spacing:1px;
 }
 
-.product img{
-width:100%;
+/* IMAGE */
+.product-image{
+position:relative;
+height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:10px;
+}
+.product-image img{
+max-width:100%;
+max-height:100%;
+cursor:pointer;
 border-radius:10px;
+}
+
+/* ARROWS */
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,.6);
+color:#39ff14;
+border:none;
+width:34px;
+height:34px;
+border-radius:50%;
+opacity:0;
+transition:.3s;
+}
+.product-image:hover .arrow{opacity:1;}
+
+/* DOTS */
+.gallery-dots{
+display:flex;
+justify-content:center;
+gap:8px;
 margin-bottom:15px;
 }
-
-.product h3{margin-bottom:10px;}
-.product p{
-opacity:.7;
-font-size:.9rem;
-margin-bottom:20px;
+.gallery-dots span{
+width:8px;height:8px;border-radius:50%;background:#555;
+}
+.gallery-dots .active{
+background:#39ff14;
+box-shadow:0 0 6px rgba(57,255,20,.8);
 }
 
-/* TELEGRAM SECTION */
+/* TELEGRAM SECTION (NEW) */
 .telegram{
 text-align:center;
+padding:100px 10%;
 background:#050505;
-border-top:1px solid rgba(255,255,255,.05);
-border-bottom:1px solid rgba(255,255,255,.05);
 }
-
-.telegram h2{margin-bottom:20px;}
 .telegram p{
 max-width:500px;
-margin:0 auto 30px;
+margin:20px auto;
 opacity:.7;
 }
 
 /* CONTACT */
-.contact{text-align:center;}
+.contact{
+padding:100px 10%;
+text-align:center;
+}
 .contact p{
 opacity:.6;
 max-width:500px;
@@ -223,128 +287,209 @@ transition:.3s;
 }
 .footer-icons img:hover{transform:scale(1.2);}
 
+/* ZOOM (UPGRADED) */
+.zoom{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2000;
+animation:fadeIn .3s;
+}
+.zoom img{
+max-width:90%;
+max-height:90%;
+transform:scale(.9);
+animation:zoomIn .3s forwards;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes zoomIn{to{transform:scale(1)}}
+
 </style>
 </head>
 
 <body>
 
-<div class="burger" onclick="toggleMenu()" id="burger">
+<div class="loader" id="loader">
+<img src="logo.png">
+</div>
+
+<div class="burger" id="burger" onclick="toggleMenu()">
 <div></div><div></div><div></div>
 </div>
 
 <nav class="side-menu" id="menu">
-
 <a href="#home" onclick="toggleMenu()">HOME</a>
 <a href="#products" onclick="toggleMenu()">COLLECTION</a>
 <a href="#contact" onclick="toggleMenu()">CONTACT</a>
-
-<h4>COMMUNITY</h4>
 <a href="https://t.me/TTE_V2" target="_blank">TELEGRAM</a>
 <a href="https://www.instagram.com/toptierexotics.2k25" target="_blank">INSTAGRAM</a>
-
-<h4>PAYMENTS</h4>
 <a href="https://www.paypal.me/TopTierExotics" target="_blank">PAYPAL</a>
-
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-
-<img src="logo.png">
-
+<img src="logo.png" class="hero-logo">
 <p>PRIVATE ACCESS • LIMITED DROPS • MEMBERS ONLY</p>
 
-<button class="btn" onclick="window.open('https://t.me/TTE_V2')">
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
 SHOP COLLECTION
 </button>
 
-<button class="btn sub-btn" onclick="window.open('https://t.me/TTE_V2')">
-JOIN PRIVATE TELEGRAM
+<button class="primary-btn secondary-btn" onclick="window.open('https://t.me/TTE_V2')">
+JOIN TELEGRAM
 </button>
 
+<div class="trust">
+WORLDWIDE SHIPPING • SECURE PAYPAL PAYMENTS
+</div>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products">
-
+<section class="products" id="products">
 <h2>FEATURED COLLECTION</h2>
 
 <div class="product-grid">
 
-<div class="product">
-<div class="badge">LIMITED DROP</div>
-<img src="hat.png">
+<article class="product">
+<div class="badge">LIMITED</div>
+
+<div class="product-image" id="hatGallery">
+<button class="arrow arrow-left" onclick="changeHat(-1)">‹</button>
+<img src="hat.png" id="hatImage">
+<button class="arrow arrow-right" onclick="changeHat(1)">›</button>
+</div>
+
+<div class="gallery-dots" id="hatDots"></div>
+
 <h3>TOPTIEREXOTICS HAT</h3>
 <p>Structured fit. Breathable fabric. Everyday essential.</p>
-<button class="btn" onclick="window.open('https://t.me/TTE_V2')">
+
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
 SECURE VIA TELEGRAM
 </button>
+</article>
+
+<article class="product">
+<div class="badge">LIMITED</div>
+
+<div class="product-image" id="tracksuitGallery">
+<button class="arrow arrow-left" onclick="changeTracksuit(-1)">‹</button>
+<img src="tracksuit.png" id="tracksuitImage">
+<button class="arrow arrow-right" onclick="changeTracksuit(1)">›</button>
 </div>
 
-<div class="product">
-<div class="badge">LIMITED DROP</div>
-<img src="tracksuit.png">
+<div class="gallery-dots" id="tracksuitDots"></div>
+
 <h3>TOPTIEREXOTICS TRACKSUIT</h3>
 <p>Premium hoodie and tapered joggers. Clean tailored fit.</p>
-<button class="btn" onclick="window.open('https://t.me/TTE_V2')">
+
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
 SECURE VIA TELEGRAM
 </button>
-</div>
+</article>
 
 </div>
-
 </section>
 
-<!-- TELEGRAM PUSH -->
 <section class="telegram">
-
 <h2>PRIVATE ACCESS ONLY</h2>
-
-<p>
-All drops are released exclusively through our Telegram. Members get early access before public release.
-</p>
-
-<button class="btn" onclick="window.open('https://t.me/TTE_V2')">
+<p>All drops are released exclusively via Telegram. Members get early access before public release.</p>
+<button class="primary-btn" onclick="window.open('https://t.me/TTE_V2')">
 JOIN NOW
 </button>
-
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
-
 <h2>CONTACT</h2>
-
-<p>
-For inquiries, sizing, or orders — message us directly via Telegram or Instagram.
-</p>
-
+<p>For inquiries, sizing, and orders — message us via Telegram or Instagram.</p>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
-
-<p>CONNECT</p>
-
+<h3>CONNECT</h3>
 <div class="footer-icons">
-<a href="https://t.me/TTE_V2" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
-</a>
-<a href="https://www.instagram.com/toptierexotics.2k25" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-</a>
-<a href="https://www.paypal.me/TopTierExotics" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/174/174861.png">
-</a>
+<a href="https://t.me/TTE_V2"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
+<a href="https://www.instagram.com/toptierexotics.2k25"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
+<a href="https://www.paypal.me/TopTierExotics"><img src="https://cdn-icons-png.flaticon.com/512/174/174861.png"></a>
 </div>
-
 </footer>
 
+<div class="zoom" id="zoom" onclick="closeZoom()">
+<img id="zoomImg">
+</div>
+
 <script>
+
+/* LOADER */
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+loader.style.opacity="0";
+setTimeout(()=>loader.style.display="none",800);
+},700);
+});
+
+/* MENU */
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-document.getElementById("burger").classList.toggle("active");
+menu.classList.toggle("active");
+burger.classList.toggle("active");
 }
+
+/* REVEAL */
+const products=document.querySelectorAll(".product");
+window.addEventListener("scroll",()=>{
+products.forEach(p=>{
+if(p.getBoundingClientRect().top<window.innerHeight*0.85){
+p.classList.add("show");
+}
+});
+});
+
+/* GALLERIES (unchanged logic) */
+const hatImages=["hat.png","hat1-back.jpg","hat1-side.jpg"];
+let hatIndex=0;
+function changeHat(d){
+hatIndex=(hatIndex+d+hatImages.length)%hatImages.length;
+hatImage.src=hatImages[hatIndex];
+updateDots("hatDots",hatIndex);
+}
+
+const tracksuitImages=["tracksuit.png","tracksuit-back.jpg","tracksuit-side.jpg","tracksuit-detail.jpg"];
+let tracksuitIndex=0;
+function changeTracksuit(d){
+tracksuitIndex=(tracksuitIndex+d+tracksuitImages.length)%tracksuitImages.length;
+tracksuitImage.src=tracksuitImages[tracksuitIndex];
+updateDots("tracksuitDots",tracksuitIndex);
+}
+
+function createDots(id,arr){
+const el=document.getElementById(id);
+arr.forEach((_,i)=>{
+const dot=document.createElement("span");
+if(i===0)dot.classList.add("active");
+el.appendChild(dot);
+});
+}
+function updateDots(id,i){
+[...document.getElementById(id).children].forEach(d=>d.classList.remove("active"));
+document.getElementById(id).children[i].classList.add("active");
+}
+createDots("hatDots",hatImages);
+createDots("tracksuitDots",tracksuitImages);
+
+/* ZOOM */
+hatImage.onclick=openZoom;
+tracksuitImage.onclick=openZoom;
+function openZoom(e){
+zoomImg.src=e.target.src;
+zoom.style.display="flex";
+}
+function closeZoom(){
+zoom.style.display="none";
+}
+
 </script>
 
 </body>
